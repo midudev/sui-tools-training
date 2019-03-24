@@ -1,0 +1,21 @@
+{
+  "name": "sui-tools-training",
+  "version": "1.0.0",
+  "description": "https://slides.com/miguelangeldurangarcia/deck-11/live",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midudev/sui-tools-training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/midudev/sui-tools-training/issues"
+  },
+  "homepage": "https://github.com/midudev/sui-tools-training#readme"
+}
