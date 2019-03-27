@@ -1,0 +1,17 @@
+.searchForm{
+display: flex;
+
+    &-input{
+
+        width: 2000px;
+        height: 40px;
+
+    }
+    &-button{
+
+        width: 200px;
+        height: 40px;
+        
+    }
+
+}
