@@ -25,19 +25,21 @@ const HomePage = props => {
         />
         <button className="searchForm-button"> Search </button>
       </form>
-      {props.results.map((movie, index) => (
-        <div key={index}>
-          <h2>{movie.Title}</h2>
-          <img src={movie.Poster} />
-        </div>
-      ))}
-      <h1>HomePage</h1>
+      {!props.error &&
+        props.results.map((movie, index) => (
+          <div key={index}>
+            <h2>{movie.Title}</h2>
+            <img src={movie.Poster} />
+          </div>
+        ))}
+      {props.error && <h1>{`${props.error}`}</h1>}
     </div>
   )
 }
 HomePage.propTypes = {
   results: PropTypes.array,
-  router: PropTypes.object
+  router: PropTypes.object,
+  error: PropTypes.string
 }
 HomePage.renderLoading = () => <h1>Loading</h1>
 
@@ -55,8 +57,8 @@ HomePage.getInitialProps = ({
     .then(res => res.json())
     .then(result => {
       const {Search} = result
-
-      return {results: Search}
+      if (Search) return {results: Search}
+      else return {error: `Could not find any films by ${query}`}
     })
 }
 
