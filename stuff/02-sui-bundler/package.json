@@ -1,15 +1,25 @@
 {
-  "name": "01-sui-bundler",
+  "name": "02-sui-bundler",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "sui-bundler dev",
+    "build": "sui-bundler build -C",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
   "dependencies": {
-    "@s-ui/bundler": "^5.3.0"
+    "@s-ui/component-peer-dependencies": "1"
+  },
+  "devDependencies": {
+    "@s-ui/bundler": "5"
   }
 }
