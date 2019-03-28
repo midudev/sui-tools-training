@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import IsomorphicFetch from 'isomorphic-fetch'
 import './index.scss'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
+import {Link} from 'react-router'
+import domain from '../../../../3-frontend-mv--lib-movies/src/index'
 
 const HomePage = props => {
   const [query, setQuery] = useState([])
@@ -28,10 +29,10 @@ const HomePage = props => {
       </form>
       {!props.error &&
         props.results.map((movie, index) => (
-          <a href={`/detail/${movie.imdbID}`} key={index}>
+          <Link to={`detail/${movie.imdbID}`} key={index}>
             <h2>{movie.Title}</h2>
             <img src={movie.Poster} />
-          </a>
+          </Link>
         ))}
       {props.error && <h1>{`${props.error}`}</h1>}
     </div>
@@ -44,21 +45,18 @@ HomePage.propTypes = {
 }
 HomePage.renderLoading = () => <AtomSpinner type={AtomSpinnerTypes.FULL} />
 
-HomePage.getInitialProps = ({
-  routeInfo: {
-    location: {
-      query: {query}
-    }
-  }
-}) => {
+HomePage.getInitialProps = ({routeInfo, context}) => {
+  const {location} = routeInfo
+  let {
+    query: {query}
+  } = location
   if (query === undefined) query = 'avengers'
-  return IsomorphicFetch(
-    `http://www.omdbapi.com/?i=tt3896198&apikey=ab2734dd&s=${query}`
-  )
-    .then(res => res.json())
-    .then(result => {
-      const {Search} = result
-      if (Search) return {results: Search}
+  return domain
+    .get('search_movies_use_case')
+    .execute({query})
+    .then(response => {
+      console.log(response)
+      if (response.Search) return {results: response.Search}
       else return {error: `Could not find any films by ${query}`}
     })
 }

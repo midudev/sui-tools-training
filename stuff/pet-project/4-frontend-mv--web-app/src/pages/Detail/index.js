@@ -1,8 +1,9 @@
 import React from 'react'
-import IsomorphicFetch from 'isomorphic-fetch'
+// import IsomorphicFetch from 'isomorphic-fetch'
 import PropTypes from 'prop-types'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import './index.scss'
+import domain from '../../../../3-frontend-mv--lib-movies/src/index'
 
 const DetailPage = props => {
   return (
@@ -25,18 +26,17 @@ DetailPage.propTypes = {
 
 DetailPage.renderLoading = () => <AtomSpinner type={AtomSpinnerTypes.FULL} />
 
-DetailPage.getInitialProps = ({
-  routeInfo: {
-    params: {id}
-  }
-}) => {
-  if (id === undefined) id = 'avengers'
-  return IsomorphicFetch(`http://www.omdbapi.com/?apikey=ab2734dd&i=${id}`)
-    .then(res => res.json())
-    .then(result => {
-      if (!result.Error) return {movie: result}
+DetailPage.getInitialProps = ({routeInfo, context}) => {
+  const {params} = routeInfo
+  const {id} = params
+
+  return domain
+    .get('detail_movies_use_case')
+    .execute({id})
+    .then(response => {
+      console.log(response)
+      if (!response.Error) return {movie: response}
       else return {error: `Film not available`}
     })
 }
-
 export default DetailPage
