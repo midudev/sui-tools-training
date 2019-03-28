@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "@s-ui/domain": "^1.17.0",
-    "@s-ui/js": "^1.26.0"
+    "@s-ui/js": "^1.26.0",
+    "isomorphic-fetch": "^2.2.1"
   },
   "browser": {
     "./test/helpers/describers/index.js": "./test/helpers/describers/clientDescribers.js"
@@ -45,6 +46,8 @@
     ]
   },
   "eslintConfig": {
-    "extends": ["./node_modules/@s-ui/lint/eslintrc.js"]
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
   }
 }

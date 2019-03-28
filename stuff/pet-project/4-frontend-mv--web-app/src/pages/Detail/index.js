@@ -23,6 +23,7 @@ DetailPage.getInitialProps = ({routeInfo, context}) => {
     .get('detail_movies_use_case')
     .execute({id})
     .then(response => {
+      console.log('response')
       console.log(response)
       return {movie: response}
     })

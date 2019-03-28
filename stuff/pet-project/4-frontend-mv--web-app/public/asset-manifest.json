@@ -1,7 +1,9 @@
 {
-  "HomePage.js": "/HomePage.15f66e49.js",
-  "main.css": "/1.e81b531a.css",
-  "main.js": "/main.c7d54385.js",
-  "runtime~main.js": "/runtime~main.6d8a6ec5.js",
+  "DetailPage.js": "/DetailPage.9a217961.js",
+  "HomePage.js": "/HomePage.90c953d2.js",
+  "main.css": "/2.7dc3f359.css",
+  "main.js": "/main.b3c45f98.js",
+  "runtime~main.js": "/runtime~main.131699af.js",
+  "vendors~DetailPage.js": "/vendors~DetailPage.e08f5e63.js",
   "index.html": "/index.html"
 }
