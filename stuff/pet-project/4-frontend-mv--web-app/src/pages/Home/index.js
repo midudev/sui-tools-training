@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import IsomorphicFetch from 'isomorphic-fetch'
 import './index.scss'
+import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 
 const HomePage = props => {
   const [query, setQuery] = useState([])
@@ -27,10 +28,10 @@ const HomePage = props => {
       </form>
       {!props.error &&
         props.results.map((movie, index) => (
-          <div key={index}>
+          <a href={`/detail/${movie.imdbID}`} key={index}>
             <h2>{movie.Title}</h2>
             <img src={movie.Poster} />
-          </div>
+          </a>
         ))}
       {props.error && <h1>{`${props.error}`}</h1>}
     </div>
@@ -41,7 +42,7 @@ HomePage.propTypes = {
   router: PropTypes.object,
   error: PropTypes.string
 }
-HomePage.renderLoading = () => <h1>Loading</h1>
+HomePage.renderLoading = () => <AtomSpinner type={AtomSpinnerTypes.FULL} />
 
 HomePage.getInitialProps = ({
   routeInfo: {
