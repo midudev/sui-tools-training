@@ -6,6 +6,15 @@
 @import '~@schibstedspain/sui-atom-tag/lib/index';
 
 
+.detailPage{
+display: flex;
+flex-flow: column wrap;
+&-title{
+        align-self: center;
+        justify-self: center;
+    
+    }
+}
 .detail{
     text-decoration: none;
     color: black;

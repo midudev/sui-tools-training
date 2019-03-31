@@ -13,25 +13,29 @@ const DetailPage = props => {
   return (
     <div>
       <Button onClick={() => props.router.goBack()}> Back </Button>
-      {props.movie && (
-        <div className="detail">
-          <h1 className="detail-title">{props.movie.Title}</h1>
-          <AtomImage src={props.movie.Poster} />
-          <p> {'Year: ' + props.movie.Year}</p>
-          <p> {'Released: ' + props.movie.Released}</p>
-          <p> {'Genre: ' + props.movie.Genre}</p>
-          <p> {'Runtime: ' + props.movie.Runtime}</p>
-          <p> {'Actors: ' + props.movie.Actors}</p>
-          <p>
-            IMDB Rating: <AtomTag label={props.movie.imdbRating} />
-          </p>
-        </div>
-      )}
-      {props.error && (
-        <MoleculeNotification type="warning">
-          {props.error}
-        </MoleculeNotification>
-      )}
+      <div className="detailPage">
+        <h1 className="detailPage-title"> Oriol Escolar's Movie Finder</h1>
+
+        {props.movie && (
+          <div className="detail">
+            <h1 className="detail-title">{props.movie.Title}</h1>
+            <AtomImage src={props.movie.Poster} />
+            <p> {'Year: ' + props.movie.Year}</p>
+            <p> {'Released: ' + props.movie.Released}</p>
+            <p> {'Genre: ' + props.movie.Genre}</p>
+            <p> {'Runtime: ' + props.movie.Runtime}</p>
+            <p> {'Actors: ' + props.movie.Actors}</p>
+            <p>
+              IMDB Rating: <AtomTag label={props.movie.imdbRating} />
+            </p>
+          </div>
+        )}
+        {props.error && (
+          <MoleculeNotification type="warning">
+            {props.error}
+          </MoleculeNotification>
+        )}
+      </div>
     </div>
   )
 }

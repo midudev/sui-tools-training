@@ -24,6 +24,8 @@ const HomePage = props => {
 
   return (
     <div className="content">
+      <h1> Oriol Escolar's Movie Finder</h1>
+
       <form className="searchForm" onSubmit={onSearch}>
         <AtomInput
           className="searchForm-input"
