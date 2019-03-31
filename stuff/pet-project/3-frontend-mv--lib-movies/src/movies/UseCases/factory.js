@@ -11,6 +11,6 @@ export default class MoviesUseCasesFactory {
 
   static searchMoviesUseCase = () =>
     new SearchMoviesUseCase({
-      repository: MoviesRepositoriesFactory.apiSearchMoviesRepository()
+      repository: MoviesRepositoriesFactory.apiMoviesRepository()
     })
 }

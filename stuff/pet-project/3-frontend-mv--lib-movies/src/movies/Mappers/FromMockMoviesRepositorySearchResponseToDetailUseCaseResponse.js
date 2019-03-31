@@ -2,11 +2,11 @@ import {Mapper} from '@s-ui/domain'
 
 export default class FromMockMoviesRepositorySearchResponseToDetailUseCaseResponse extends Mapper {
   map(mockResponse) {
-    const {Title, Poster, ...restOfResponse} = mockResponse
+    const {title, poster, ...restOfResponse} = mockResponse
 
     return {
-      title: Title,
-      poster: Poster,
+      Tile: title,
+      Poster: poster,
       ...restOfResponse
     }
   }

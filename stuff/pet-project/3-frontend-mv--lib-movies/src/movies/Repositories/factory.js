@@ -1,5 +1,4 @@
 import ApiMoviesRepository from './ApiMoviesRepository'
-import ApiSearchMoviesRepository from './ApiSearchMoviesRepository'
 import MockDetailMoviesRepository from './MockDetailMoviesRepository'
 import MockSearchMoviesUseCase from './MockSearchMoviesUseCase'
 
@@ -9,8 +8,6 @@ import fetch from 'isomorphic-fetch'
 
 export default class MoviesRepositoriesFactory {
   static apiMoviesRepository = () => new ApiMoviesRepository({fetch})
-  static apiSearchMoviesRepository = () =>
-    new ApiSearchMoviesRepository({fetch})
 
   static mockDetailMoviesRepository = () =>
     new MockDetailMoviesRepository({

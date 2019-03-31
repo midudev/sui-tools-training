@@ -12,4 +12,10 @@ export default class ApiMoviesRepository extends MoviesRepository {
       res => res.json()
     )
   }
+
+  getSearch({query}) {
+    return this._fetch(
+      `http://www.omdbapi.com/?apikey=ab2734dd&s=${query}`
+    ).then(res => res.json())
+  }
 }

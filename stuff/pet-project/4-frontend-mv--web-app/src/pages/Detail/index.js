@@ -2,26 +2,44 @@ import React from 'react'
 // import IsomorphicFetch from 'isomorphic-fetch'
 import PropTypes from 'prop-types'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
-import './index.scss'
+import Button from '@schibstedspain/sui-atom-button'
+import MoleculeNotification from '@s-ui/react-molecule-notification'
+import AtomImage from '@s-ui/react-atom-image'
+import AtomTag from '@schibstedspain/sui-atom-tag'
 import domain from '../../../../3-frontend-mv--lib-movies/src/index'
+import './index.scss'
 
 const DetailPage = props => {
   return (
     <div>
+      <Button onClick={() => props.router.goBack()}> Back </Button>
       {props.movie && (
-        <div>
-          <h1>{props.movie.Title}</h1>
-          <img src={props.movie.Poster} />
+        <div className="detail">
+          <h1 className="detail-title">{props.movie.Title}</h1>
+          <AtomImage src={props.movie.Poster} />
+          <p> {'Year: ' + props.movie.Year}</p>
+          <p> {'Released: ' + props.movie.Released}</p>
+          <p> {'Genre: ' + props.movie.Genre}</p>
+          <p> {'Runtime: ' + props.movie.Runtime}</p>
+          <p> {'Actors: ' + props.movie.Actors}</p>
+          <p>
+            IMDB Rating: <AtomTag label={props.movie.imdbRating} />
+          </p>
         </div>
       )}
-      {props.error && <h1>{props.error}</h1>}
+      {props.error && (
+        <MoleculeNotification type="warning">
+          {props.error}
+        </MoleculeNotification>
+      )}
     </div>
   )
 }
 
 DetailPage.propTypes = {
   movie: PropTypes.object,
-  error: PropTypes.string
+  error: PropTypes.string,
+  router: PropTypes.object
 }
 
 DetailPage.renderLoading = () => <AtomSpinner type={AtomSpinnerTypes.FULL} />

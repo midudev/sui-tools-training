@@ -9,7 +9,7 @@ class SearchMoviesUseCase extends UseCase {
   }
 
   async execute({query}) {
-    return this._repository.getDetail({query})
+    return this._repository.getSearch({query})
   }
 }
 

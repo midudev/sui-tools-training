@@ -2,6 +2,10 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import './index.scss'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
+import Button from '@schibstedspain/sui-atom-button'
+import AtomInput from '@s-ui/react-atom-input'
+import MoleculeNotification from '@s-ui/react-molecule-notification'
+import AtomImage from '@s-ui/react-atom-image'
 import {Link} from 'react-router'
 import domain from '../../../../3-frontend-mv--lib-movies/src/index'
 
@@ -19,22 +23,30 @@ const HomePage = props => {
   }
 
   return (
-    <div>
+    <div className="content">
       <form className="searchForm" onSubmit={onSearch}>
-        <input
+        <AtomInput
           className="searchForm-input"
           onChange={event => setQueryValue(event)}
         />
-        <button className="searchForm-button"> Search </button>
+        <Button className="searchForm-button"> Search </Button>
       </form>
       {!props.error &&
         props.results.map((movie, index) => (
-          <Link to={`detail/${movie.imdbID}`} key={index}>
+          <Link
+            className="content-card"
+            to={`detail/${movie.imdbID}`}
+            key={index}
+          >
             <h2>{movie.Title}</h2>
-            <img src={movie.Poster} />
+            <AtomImage src={movie.Poster} />
           </Link>
         ))}
-      {props.error && <h1>{`${props.error}`}</h1>}
+      {props.error && (
+        <MoleculeNotification className="content-warning" type="warning">{`${
+          props.error
+        }`}</MoleculeNotification>
+      )}
     </div>
   )
 }
@@ -55,7 +67,6 @@ HomePage.getInitialProps = ({routeInfo, context}) => {
     .get('search_movies_use_case')
     .execute({query})
     .then(response => {
-      console.log(response)
       if (response.Search) return {results: response.Search}
       else return {error: `Could not find any films by ${query}`}
     })
