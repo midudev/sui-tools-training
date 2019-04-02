@@ -8,7 +8,8 @@ export default class MoviesRepositoriesFactory {
   static apiMoviesRepository = ({config}) =>
     new ApiMoviesRepository({
       config,
-      fetcher: FetcherFactory.httpFetcher({config})
+      fetcher: FetcherFactory.httpFetcher({config}),
+      mapper: MoviesMappersFactory.moviesMapper({config})
     })
 
   static mockMoviesRepository = () =>
