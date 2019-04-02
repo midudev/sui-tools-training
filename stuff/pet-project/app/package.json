@@ -1,0 +1,35 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "### What is it?",
+  "main": "index.js",
+  "scripts": {
+    "analizer": "sui-bundler analizer",
+    "co": "sui-mono commit",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ssr": "sui-bundler build -C && sui-ssr build -C && node server/index.js --inspect `pbpaste`"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@s-ui/bundler": "5",
+    "@s-ui/lint": "2",
+    "@s-ui/mono": "1",
+    "@s-ui/precommit": "2",
+    "@s-ui/ssr": "5",
+    "husky": "1.3.1"
+  },
+  "dependencies": {
+    "@s-ui/component-peer-dependencies": "1",
+    "@s-ui/hoc": "1",
+    "@s-ui/i18n": "1",
+    "@s-ui/react-initial-props": "2",
+    "isomorphic-fetch": "2.2.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  }
+}
