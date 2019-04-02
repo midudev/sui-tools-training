@@ -6,6 +6,7 @@
   "scripts": {
     "analizer": "sui-bundler analizer",
     "co": "sui-mono commit",
+    "start": "sui-bundler dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ssr": "sui-bundler build -C && sui-ssr build -C && node server/index.js --inspect `pbpaste`"
   },
