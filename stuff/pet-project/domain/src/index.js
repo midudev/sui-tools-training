@@ -1,13 +1,13 @@
 import {EntryPointFactory} from '@s-ui/domain'
 import MoviesUseCasesFactory from './movies/UseCases/factory'
 
-const config = {
-  API_EDNPOINT: `http://www.omdbapi.com/?apikey=e1c3c914`
-}
+import Config from './config'
+
+const config = new Config()
 
 const useCases = {
   search_movies_use_case: MoviesUseCasesFactory.searchMoviesUseCase({config})
 }
 
-const Domain = EntryPointFactory({useCases})
+const Domain = EntryPointFactory({config, useCases})
 export default new Domain()

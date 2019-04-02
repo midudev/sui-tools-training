@@ -1,16 +1,19 @@
 import MoviesRepository from './MoviesRepository'
 
 export default class ApiMoviesRepository extends MoviesRepository {
-  constructor({fetch, config}) {
+  constructor({fetcher, config}) {
     super()
 
-    this._fetch = fetch
+    this._fetcher = fetcher
     this._config = config
   }
 
   getMoviesBy({query}) {
-    return this._fetch(`${this._config.API_EDNPOINT}&s=${query}`).then(res =>
-      res.json()
+    const host = this._config.get('API_URL_BASE')
+    const apiKey = this._config.get('API_KEY')
+
+    return this._fetcher.get(
+      `${host}/search/movie?api_key=${apiKey}&query=${query}`
     )
   }
 }
