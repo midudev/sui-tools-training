@@ -1,3 +1,3 @@
-// import domain from '<marketplace-domain-package>'
+import domain from '../../domain/src'
 
-export default async () => ({})
+export default async () => ({domain})

@@ -19,7 +19,7 @@ export default (
     <Route component={App}>
       <Route path="/">
         <IndexRoute getComponent={LoadHomePage} />
-        <Route path="search/:query" getComponent={SearchPage} />
+        <Route path="search(/:query)(/:page)" getComponent={SearchPage} />
       </Route>
     </Route>
   </Router>

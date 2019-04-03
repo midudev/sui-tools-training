@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import domain from '../.././../../domain/src'
 
-const Search = props => (
+const Search = ({movies}) => (
   <React.Fragment>
     <h1>Home test title</h1>
     <div className="results">
-      {props.movies.map(movie => (
+      {movies.map(movie => (
         <article key={movie.id}>
           <img src={movie.posterPath} alt={movie.title} />
           {movie.title}
@@ -24,7 +23,7 @@ Search.renderLoading = () => <h1>Loading...</h1>
 
 Search.getInitialProps = ({context, routeInfo}) => {
   const query = routeInfo.params.query
-
+  const {domain} = context
   return domain
     .get('search_movies_use_case')
     .execute({query, page: 1})
