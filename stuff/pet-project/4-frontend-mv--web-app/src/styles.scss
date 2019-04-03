@@ -1,5 +1,8 @@
-.movie-card {
-    display: flex;
-    flex-direction: column;
-    width: 20em;
+body {
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }

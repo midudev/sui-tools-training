@@ -1,0 +1,35 @@
+@import '~@s-ui/react-atom-input/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+@import "~@s-ui/react-atom-image/lib/index";
+
+$break-small: 320px;
+$break-medium: 915px;
+$break-phone: 415px;
+$break-tablet: 915px;
+$break-desktop: 1024px !default;
+
+.moviesSection {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: 27%;
+    width: 90%;
+    margin: 0 auto;
+    
+
+@media (max-width: $break-phone) {
+    grid-template-columns: 100%;
+    grid-template-rows: 20%;
+}
+
+@media(min-width: $break-tablet) and (max-width: $break-desktop) {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 22%;
+}
+}
+
+.sui-AtomInput-input {
+    margin: 20px 0;
+}
+
+
+
