@@ -25,6 +25,7 @@
     "@s-ui/component-peer-dependencies": "1",
     "@s-ui/hoc": "1",
     "@s-ui/i18n": "1",
+    "@s-ui/react-atom-input": "^3.9.0",
     "@s-ui/react-initial-props": "2",
     "isomorphic-fetch": "2.2.1"
   },

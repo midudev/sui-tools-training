@@ -12,13 +12,15 @@ const App = ({router, children}) => (
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <title>Movie Search</title>
     </Helmet>
-    <header>
-      <SearchForm router={router} />
-    </header>
-    <main>{children}</main>
-    <footer>
-      <p>Build with love by robertz</p>
-    </footer>
+    <div className="container">
+      <header className="header">
+        <SearchForm router={router} />
+      </header>
+      <main>{children}</main>
+      <footer className="footer">
+        <p className="footer-build">Build with love by robertz</p>
+      </footer>
+    </div>
   </React.Fragment>
 )
 

@@ -10,6 +10,8 @@ import withContext from '@s-ui/hoc/lib/withContext'
 import createClientContextFactoryParams from '@s-ui/react-initial-props/lib/createClientContextFactoryParams'
 import contextFactory from './contextFactory'
 
+import './styles.scss'
+
 contextFactory(createClientContextFactoryParams()).then(context => {
   match(
     {routes, history: browserHistory},

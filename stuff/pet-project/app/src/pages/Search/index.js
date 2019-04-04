@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Search = ({movies}) => (
-  <React.Fragment>
-    <h1>Home test title</h1>
+  <div className="content">
     <div className="results">
       {movies.map(movie => (
         <article key={movie.id}>
@@ -12,7 +11,7 @@ const Search = ({movies}) => (
         </article>
       ))}
     </div>
-  </React.Fragment>
+  </div>
 )
 
 Search.propTypes = {
@@ -23,10 +22,12 @@ Search.renderLoading = () => <h1>Loading...</h1>
 
 Search.getInitialProps = ({context, routeInfo}) => {
   const query = routeInfo.params.query
+  const page = routeInfo.params.page || 1
+
   const {domain} = context
   return domain
     .get('search_movies_use_case')
-    .execute({query, page: 1})
+    .execute({query, page})
     .then(({movies}) => {
       return {movies}
     })
