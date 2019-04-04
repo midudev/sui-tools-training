@@ -20,4 +20,11 @@
     top: 0;
     display: flex;
     transform: translateX(-50%);
+    @media (max-width: 750px) {
+        flex-direction: column;
+    }
+}
+
+article.movieDetail {
+    padding-left: 80px;
 }

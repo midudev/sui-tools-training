@@ -6,8 +6,20 @@ import AtomCard from '@s-ui/react-atom-card'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import './index.scss'
 import {Link} from 'react-router'
+import Button from '@schibstedspain/sui-atom-button'
 
 const DetailPage = props => {
+  const {
+    Poster,
+    Title,
+    Runtime,
+    Director,
+    Actors,
+    Plot,
+    imdbRating,
+    Website,
+    imdbID
+  } = props.movie
   const Spinner = () => {
     return <AtomSpinner type={AtomSpinnerTypes.FULL} />
   }
@@ -18,37 +30,54 @@ const DetailPage = props => {
 
   const MovieImage = () => (
     <div className="containerImageStyles">
-      <AtomImage
-        className="imageStyle"
-        src={props.movie.Poster}
-        spinner={Spinner}
-        placeholder={IMAGES.PLACEHOLDER}
-        alt="Nice Picture"
-      />
+      {Poster === 'N/A' ? (
+        <AtomImage
+          className="imageStyle"
+          src="https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image"
+          spinner={Spinner}
+          placeholder={IMAGES.PLACEHOLDER}
+          alt="Nice Picture"
+        />
+      ) : (
+        <AtomImage
+          className="imageStyle"
+          src={Poster}
+          spinner={Spinner}
+          placeholder={IMAGES.PLACEHOLDER}
+          alt="Nice Picture"
+        />
+      )}
     </div>
   )
 
   const MovieInfo = () => (
-    <article>
-      <h1>{props.movie.Title}</h1>
-      <p>Director: {props.movie.Runtime}</p>
-      <p>Director: {props.movie.Director}</p>
-      <p>Cast: {props.movie.Actors}</p>
-      <p>{props.movie.Plot}</p>
-      <p>Rate: {props.movie.imdbRating}</p>
-      <Link
-        className="movieLink"
-        to={props.movie.Website}
-        key={props.movie.imdbID}
-      >
-        {props.movie.Website}
-      </Link>
+    <article className="movieDetail">
+      <h1>{Title}</h1>
+      {Runtime === 'N/A' ? '' : <p>Duration: {Runtime}</p>}
+      {Director === 'N/A' ? '' : <p>Director: {Director}</p>}
+      {Actors === 'N/A' ? '' : <p>Cast: {Actors}</p>}
+      {Plot === 'N/A' ? '' : <p>{Plot}</p>}
+      {imdbRating === 'N/A' ? '' : <p>Rate: {imdbRating}</p>}
+      {Website === 'N/A' ? (
+        ''
+      ) : (
+        <Link className="movieLink" to={Website} key={imdbID}>
+          {Website}
+        </Link>
+      )}
     </article>
   )
   return (
-    <div className="detail-container">
-      <AtomCard media={MovieImage} content={MovieInfo} />
-    </div>
+    <section>
+      <div className="detail-container">
+        <AtomCard media={MovieImage} content={MovieInfo} />
+      </div>
+      <Button isSubmit type="primary">
+        <Link to={`/`} key="home">
+          Home
+        </Link>
+      </Button>
+    </section>
   )
 }
 

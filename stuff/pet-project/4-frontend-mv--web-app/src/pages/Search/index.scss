@@ -2,8 +2,6 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 @import "~@s-ui/react-atom-image/lib/index";
 
-$break-small: 320px;
-$break-medium: 915px;
 $break-phone: 415px;
 $break-tablet: 915px;
 $break-desktop: 1024px !default;
@@ -14,17 +12,16 @@ $break-desktop: 1024px !default;
     grid-template-rows: 27%;
     width: 90%;
     margin: 0 auto;
-    
 
-@media (max-width: $break-phone) {
-    grid-template-columns: 100%;
-    grid-template-rows: 20%;
-}
+    @media (max-width: $break-phone) {
+        grid-template-columns: 100%;
+        grid-template-rows: 20%;
+    }
 
-@media(min-width: $break-tablet) and (max-width: $break-desktop) {
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 22%;
-}
+    @media(max-width: $break-tablet) and (min-width: $break-phone) {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 22%;
+    }
 }
 
 .sui-AtomInput-input {

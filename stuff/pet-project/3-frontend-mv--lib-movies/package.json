@@ -42,9 +42,16 @@
   "dependencies": {
     "@s-ui/domain": "1",
     "@s-ui/js": "1",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "es6-promise": "^4.2.6",
+    "isomorphic-fetch": "^2.2.1"
   },
   "eslintConfig": {
-    "extends": ["./node_modules/@s-ui/lint/eslintrc.js"]
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "directories": {
+    "lib": "lib"
   }
 }

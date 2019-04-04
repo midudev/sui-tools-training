@@ -11,19 +11,27 @@ const MoviesList = props => {
     return <AtomSpinner type={AtomSpinnerTypes.FULL} />
   }
 
-  const IMAGES = {
-    PLACEHOLDER: 'https://picsum.photos/50?image=980'
-  }
+  const errorImg = 'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image'
+
   return props.movies.map(movie => {
+    console.log(movie)
     const MovieImage = () => (
       <div className="containerImageStyles">
-        <AtomImage
-          className="imageStyle"
-          src={movie.Poster}
-          spinner={Spinner}
-          placeholder={IMAGES.PLACEHOLDER}
-          alt="Nice Picture"
-        />
+        {movie.Poster === 'N/A' ? (
+          <AtomImage
+            className="imageStyle"
+            src={errorImg}
+            spinner={Spinner}
+            alt="Nice Picture"
+          />
+        ) : (
+          <AtomImage
+            className="imageStyle"
+            src={movie.Poster}
+            spinner={Spinner}
+            alt="Nice Picture"
+          />
+        )}
       </div>
     )
 

@@ -6,6 +6,8 @@
 }
 div.containerImageStyles {
     border: 2px solid #ccc;
+    width: 300px;
+    height: 450px;
   }
 
 h2 {
@@ -15,5 +17,9 @@ h2 {
 
 .movieLink {
     text-decoration: none;
-    display: flex;
+}
+
+.imageStyle {
+    height: 100%;
+    width: 100%;
 }
