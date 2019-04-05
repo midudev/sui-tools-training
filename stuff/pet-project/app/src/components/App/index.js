@@ -34,7 +34,9 @@ const App = ({router, children}) => (
       <header className="header">
         <SearchForm router={router} />
       </header>
-      <main>{children}</main>
+      <main>
+        <div className="content">{children}</div>
+      </main>
       <footer className="footer">
         <p className="footer-build">
           Build with <IconHeart /> by robertz

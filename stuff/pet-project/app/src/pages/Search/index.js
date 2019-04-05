@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import MoleculePagination from '@s-ui/react-molecule-pagination'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
-import AtomCard from '@s-ui/react-atom-card'
-import AtomImage from '@s-ui/react-atom-image'
+
+import Results from '../../components/Results'
+import Pagination from '../../components/Pagination'
 
 const Search = ({router, query, movies, actualPage, totalPages}) => {
   const onSelectPage = (Event, {page}) => {
@@ -12,41 +12,14 @@ const Search = ({router, query, movies, actualPage, totalPages}) => {
   }
 
   return (
-    <div className="content">
-      <div className="results">
-        {movies.map(movie => {
-          const movieImage = () => (
-            <AtomImage src={movie.posterPath} alt={movie.title} />
-          )
-          const movieInfo = () => (
-            <header>
-              <span className="date">{movie.releaseDate}</span>
-              <h1>{movie.title}</h1>
-            </header>
-          )
-          return (
-            <article key={movie.id} className="movie">
-              <AtomCard
-                media={movieImage}
-                content={movieInfo}
-                href={`/movie/${movie.id}`}
-                vertical
-              />
-            </article>
-          )
-        })}
-      </div>
-      <div className="pagination">
-        <MoleculePagination
-          totalPages={totalPages}
-          page={actualPage}
-          showPages={totalPages > 5 ? 5 : totalPages}
-          onSelectPage={onSelectPage}
-          onSelectNext={onSelectPage}
-          onSelectPrev={onSelectPage}
-        />
-      </div>
-    </div>
+    <React.Fragment>
+      <Results movies={movies} />
+      <Pagination
+        actualPage={actualPage}
+        totalPages={totalPages}
+        onSelectPage={onSelectPage}
+      />
+    </React.Fragment>
   )
 }
 
