@@ -71,3 +71,10 @@ body {
         }
     }
 }
+
+@import '~@s-ui/react-molecule-pagination/lib/index';
+.pagination {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}

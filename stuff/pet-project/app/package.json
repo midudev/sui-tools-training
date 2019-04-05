@@ -27,6 +27,7 @@
     "@s-ui/i18n": "1",
     "@s-ui/react-atom-input": "^3.9.0",
     "@s-ui/react-initial-props": "2",
+    "@s-ui/react-molecule-pagination": "^1.1.0",
     "isomorphic-fetch": "2.2.1"
   },
   "eslintConfig": {

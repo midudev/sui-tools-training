@@ -19,6 +19,8 @@ contextFactory(createClientContextFactoryParams()).then(context => {
       if (err) {
         console.error(err)
       }
+      const {router} = renderProps
+      context.router = router
 
       const App = withContext(context)(Router)
       ReactDOM.render(<App {...renderProps} />, document.getElementById('⚛️'))
