@@ -2,6 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculePagination from '@s-ui/react-molecule-pagination'
+import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
+import AtomCard from '@s-ui/react-atom-card'
+import AtomImage from '@s-ui/react-atom-image'
 
 const Search = ({router, query, movies, actualPage, totalPages}) => {
   const onSelectPage = (Event, {page}) => {
@@ -11,12 +14,27 @@ const Search = ({router, query, movies, actualPage, totalPages}) => {
   return (
     <div className="content">
       <div className="results">
-        {movies.map(movie => (
-          <article key={movie.id}>
-            <img src={movie.posterPath} alt={movie.title} />
-            {movie.title}
-          </article>
-        ))}
+        {movies.map(movie => {
+          const movieImage = () => (
+            <AtomImage src={movie.posterPath} alt={movie.title} />
+          )
+          const movieInfo = () => (
+            <header>
+              <span className="date">{movie.releaseDate}</span>
+              <h1>{movie.title}</h1>
+            </header>
+          )
+          return (
+            <article key={movie.id} className="movie">
+              <AtomCard
+                media={movieImage}
+                content={movieInfo}
+                href={`/movie/${movie.id}`}
+                vertical
+              />
+            </article>
+          )
+        })}
       </div>
       <div className="pagination">
         <MoleculePagination
@@ -40,7 +58,7 @@ Search.propTypes = {
   totalPages: PropTypes.number
 }
 
-Search.renderLoading = () => <h1>Loading...</h1>
+Search.renderLoading = () => <AtomSpinner type={AtomSpinnerTypes.FULL} />
 
 Search.getInitialProps = ({context, routeInfo}) => {
   const query = routeInfo.params.query

@@ -1,6 +1,9 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,700');
 
+$regal-blue: #034378;
+$san-juan: #2d4e68;
+
 * {
     box-sizing: border-box;
 }
@@ -15,13 +18,15 @@ body {
     font-family: 'Quicksand', sans-serif;;
     color: #202121;
     background: #f4f7f6;
+    background-image: linear-gradient(to right, $regal-blue, $san-juan);
 }
 
-#app {
+#⚛️ {
     height: 100%;
 }
 
 .container {
+    height: 100%;
     display: grid;
     grid-template-rows: 70px auto 40px;
 }
@@ -47,12 +52,23 @@ body {
     &-build {
         margin: 0;
         font-size: 12px;
+        color: #fff;
+
+        & .fa-heart {
+            position: relative;
+            top: 2px;
+            width: 12px;
+            color: #ff0070;
+        }
     }
 }
 
 
 @import '~@s-ui/react-atom-input/lib/index';
 .search-content {
+    position: fixed;
+    width: 100%;
+    z-index: 9;
     & .sui-AtomInput--withIcon-icon {
         width: 16px;
         height: 16px;
@@ -78,3 +94,86 @@ body {
     display: flex;
     justify-content: center;
 }
+
+
+@import '~@s-ui/react-atom-card/lib/index';
+.results {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+    gap: 40px;
+    grid-template-columns: 1fr;
+    
+    @include media-breakpoint-up(s) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include media-breakpoint-up(l) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+   
+}
+
+.movie {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 300px;
+    margin: 0px auto;
+    overflow: hidden;
+
+    & .sui-AtomCard-info {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        color: #fff;
+        z-index: 9;
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform .3s;
+
+        & .date {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        & h1 {
+            margin: 0;
+        }
+    }
+
+    & figure {
+        margin: 0;
+
+        &:after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: inset 0px 0px 150px 100px rgba(0,0,0,0.6);
+            z-index: 1;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+          }
+    }
+
+    &:hover {
+        & .sui-AtomCard-info {
+            transform: translateY(0)
+        }
+        & figure:after {
+            opacity: 1;
+        }
+    }
+}
+
+@import '~@s-ui/react-atom-spinner/lib/index';
+
