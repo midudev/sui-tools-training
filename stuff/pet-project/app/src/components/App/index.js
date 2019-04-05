@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 
-import SearchForm from '../SearchForm'
+import Header from '../Header'
 import Footer from '../Footer'
 
 const App = ({router, children}) => (
@@ -14,9 +14,7 @@ const App = ({router, children}) => (
       <title>Movie Search</title>
     </Helmet>
     <div className="container">
-      <header className="header">
-        <SearchForm router={router} />
-      </header>
+      <Header router={router} />
       <main>
         <div className="content">{children}</div>
       </main>
