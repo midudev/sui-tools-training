@@ -63,6 +63,10 @@ body {
     }
 }
 
+figure {
+    margin: 0;
+}
+
 
 @import '~@s-ui/react-atom-input/lib/index';
 .search-content {
@@ -100,9 +104,7 @@ body {
 .results {
     padding: 40px 0;
     display: grid;
-    grid-template-columns: 1fr;
     grid-gap: 40px;
-    gap: 40px;
     grid-template-columns: 1fr;
     
     @include media-breakpoint-up(s) {
@@ -118,7 +120,6 @@ body {
     position: relative;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column;
     flex-direction: column;
     background: #fff;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
@@ -127,7 +128,7 @@ body {
     margin: 0px auto;
     overflow: hidden;
 
-    & .sui-AtomCard-info {
+    .sui-AtomCard-info {
         position: absolute;
         bottom: 0;
         width: 100%;
@@ -137,20 +138,18 @@ body {
         transform: translateY(100%);
         transition: transform .3s;
 
-        & .date {
+        .date {
             display: block;
             font-size: 12px;
             margin-bottom: 5px;
         }
 
-        & h1 {
+        h1 {
             margin: 0;
         }
     }
 
-    & figure {
-        margin: 0;
-
+    figure {
         &:after{
             content: "";
             position: absolute;
@@ -166,10 +165,10 @@ body {
     }
 
     &:hover {
-        & .sui-AtomCard-info {
+        .sui-AtomCard-info {
             transform: translateY(0)
         }
-        & figure:after {
+        figure:after {
             opacity: 1;
         }
     }
@@ -177,3 +176,29 @@ body {
 
 @import '~@s-ui/react-atom-spinner/lib/index';
 
+.movie-detail {
+    max-width: 300px;
+    margin: 40px auto;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    @include media-breakpoint-up(s) {
+        max-width: 800px;
+        grid-template-columns: 300px auto;
+    }
+
+
+    &-info {
+        padding: 20px;
+        background: #fff;
+    }
+
+    &-vote-average {
+        text-align: right;
+        font-size: 10px;
+        span {
+            font-size: 20px;
+        }
+    }
+}

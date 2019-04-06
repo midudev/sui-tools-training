@@ -14,12 +14,17 @@ const SearchPage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Search" */ './pages/Search')
 )
 
+const DetailPage = loadPage(contextFactory, () =>
+  import(/* webpackChunkName: "Detail" */ './pages/Detail')
+)
+
 export default (
   <Router>
     <Route component={App}>
       <Route path="/">
         <IndexRoute getComponent={LoadHomePage} />
         <Route path="search(/:query)(/:page)" getComponent={SearchPage} />
+        <Route path="movie/:id" getComponent={DetailPage} />
       </Route>
     </Route>
   </Router>
