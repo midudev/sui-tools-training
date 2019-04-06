@@ -7,6 +7,8 @@ import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import './index.scss'
 
 const MoviesList = props => {
+  console.log(props)
+
   const Spinner = () => {
     return <AtomSpinner type={AtomSpinnerTypes.FULL} />
   }
@@ -14,7 +16,6 @@ const MoviesList = props => {
   const errorImg = 'https://imgplaceholder.com/420x320/ff7f7f/333333/fa-image'
 
   return props.movies.map(movie => {
-    console.log(movie)
     const MovieImage = () => (
       <div className="containerImageStyles">
         {movie.Poster === 'N/A' ? (

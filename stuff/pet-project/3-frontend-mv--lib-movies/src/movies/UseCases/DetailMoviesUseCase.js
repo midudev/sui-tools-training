@@ -2,6 +2,8 @@ import {UseCase} from '@s-ui/domain'
 
 class DetailMoviesUseCase extends UseCase {
   constructor({config, repository}) {
+    console.log(config)
+    console.log(repository)
     super()
     this._config = config
     this._repository = repository
