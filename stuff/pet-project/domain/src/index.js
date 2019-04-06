@@ -6,7 +6,8 @@ import Config from './config'
 const config = new Config()
 
 const useCases = {
-  search_movies_use_case: MoviesUseCasesFactory.searchMoviesUseCase({config})
+  search_movies_use_case: MoviesUseCasesFactory.searchMoviesUseCase({config}),
+  detail_movies_use_case: MoviesUseCasesFactory.detailMoviesUseCase({config})
 }
 
 const Domain = EntryPointFactory({config, useCases})

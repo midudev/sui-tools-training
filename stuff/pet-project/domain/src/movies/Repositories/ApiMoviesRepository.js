@@ -31,4 +31,15 @@ export default class ApiMoviesRepository extends MoviesRepository {
       movies: movies.map(this._mapper.map)
     }
   }
+
+  async getDetail({id}) {
+    const host = this._config.get('API_URL_BASE')
+    const apiKey = this._config.get('API_KEY')
+
+    const {data} = await this._fetcher.get(
+      `${host}/movie/${id}?api_key=${apiKey}`
+    )
+
+    return this._mapper.map(data)
+  }
 }
