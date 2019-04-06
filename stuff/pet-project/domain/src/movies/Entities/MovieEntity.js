@@ -1,7 +1,15 @@
 import {Entity} from '@s-ui/domain'
 
 class MovieEntity extends Entity {
-  constructor({id, title, overview, releaseDate, voteAverage, posterPath}) {
+  constructor({
+    id,
+    title,
+    overview,
+    releaseDate,
+    voteAverage,
+    voteCount,
+    posterPath
+  }) {
     super()
 
     this._id = id
@@ -9,6 +17,7 @@ class MovieEntity extends Entity {
     this._overview = overview
     this._releaseDate = releaseDate
     this._voteAverage = voteAverage
+    this._voteCount = voteCount
     this._posterPath = posterPath
   }
 
@@ -18,6 +27,7 @@ class MovieEntity extends Entity {
     overview: this._overview,
     releaseDate: this._releaseDate,
     voteAverage: this._voteAverage,
+    voteCount: this._voteCount,
     posterPath: this._posterPath
   })
 }

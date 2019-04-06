@@ -14,6 +14,7 @@ export default class MoviesMapper extends Mapper {
       overview,
       release_date: releaseDate,
       vote_average: voteAverage,
+      vote_count: voteCount,
       poster_path: posterPath
     } = movie
 
@@ -25,6 +26,7 @@ export default class MoviesMapper extends Mapper {
       overview,
       releaseDate,
       voteAverage,
+      voteCount,
       posterPath: `${imageBaseUrl}${posterPath}`
     })
   }
