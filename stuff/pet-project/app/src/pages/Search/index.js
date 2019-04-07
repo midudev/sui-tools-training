@@ -2,23 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
+import MoleculeNotification from '@s-ui/react-molecule-notification'
 
 import Results from '../../components/Results'
-import Pagination from '../../components/Pagination'
 
-const Search = ({router, query, movies, actualPage, totalPages}) => {
+const Search = ({router, error, query, moviesList}) => {
   const onSelectPage = (Event, {page}) => {
     router.push(`/search/${query}/${page}`)
   }
 
+  if (error)
+    return (
+      <MoleculeNotification
+        children={error.message}
+        type="error"
+        variation="negative"
+        position="bottom"
+      />
+    )
+
   return (
     <React.Fragment>
-      <Results movies={movies} />
-      <Pagination
-        actualPage={actualPage}
-        totalPages={totalPages}
-        onSelectPage={onSelectPage}
-      />
+      <Results moviesList={moviesList} onSelectPage={onSelectPage} />
     </React.Fragment>
   )
 }
@@ -26,9 +31,8 @@ const Search = ({router, query, movies, actualPage, totalPages}) => {
 Search.propTypes = {
   router: PropTypes.object,
   query: PropTypes.string,
-  movies: PropTypes.array,
-  actualPage: PropTypes.number,
-  totalPages: PropTypes.number
+  moviesList: PropTypes.object,
+  error: PropTypes.object
 }
 
 Search.renderLoading = () => <AtomSpinner type={AtomSpinnerTypes.FULL} />
@@ -40,8 +44,11 @@ Search.getInitialProps = ({context, routeInfo}) => {
   return domain
     .get('search_movies_use_case')
     .execute({query, page})
-    .then(({movies, actualPage, totalPages}) => {
-      return {query, movies, actualPage, totalPages}
+    .then(moviesList => {
+      return {query, moviesList}
+    })
+    .catch(error => {
+      return {error}
     })
 }
 

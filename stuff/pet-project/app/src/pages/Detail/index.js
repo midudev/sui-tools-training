@@ -1,30 +1,14 @@
 import React from 'react'
-import Link from 'react-router/lib/Link'
 import PropTypes from 'prop-types'
 
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
-import AtomImage from '@s-ui/react-atom-image'
+
+import MovieDetailCard from '../../components/MovieDetailCard'
 
 const Detail = ({movie}) => {
   return (
     <React.Fragment>
-      <Link to="/" className="back">
-        Back
-      </Link>
-      <div className="movie-detail">
-        <div className="movie-detail-image">
-          <AtomImage src={movie.posterPath} alt={movie.title} />
-        </div>
-        <div className="movie-detail-info">
-          <header>
-            <div className="movie-detail-vote-average">
-              <span>{movie.voteAverage}</span>/10
-            </div>
-            <h2>{movie.title}</h2>
-          </header>
-          {movie.overview}
-        </div>
-      </div>
+      <MovieDetailCard movie={movie} />
     </React.Fragment>
   )
 }
