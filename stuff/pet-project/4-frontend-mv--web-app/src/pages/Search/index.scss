@@ -1,5 +1,6 @@
 @import '~@s-ui/react-atom-input/lib/index';
 @import '~@schibstedspain/sui-atom-button/lib/index';
+@import '~@s-ui/react-atom-spinner/lib/index';
 @import "~@s-ui/react-atom-image/lib/index";
 
 $break-phone: 415px;
@@ -13,12 +14,12 @@ $break-desktop: 1024px !default;
     width: 90%;
     margin: 0 auto;
 
-    @media (max-width: $break-phone) {
+    @media screen and(max-width: $break-phone) {
         grid-template-columns: 100%;
         grid-template-rows: 20%;
     }
 
-    @media(max-width: $break-tablet) and (min-width: $break-phone) {
+    @media screen and(max-width: $break-tablet) and (min-width: $break-phone) {
         grid-template-columns: 50% 50%;
         grid-template-rows: 22%;
     }
@@ -26,6 +27,15 @@ $break-desktop: 1024px !default;
 
 .sui-AtomInput-input {
     margin: 20px 0;
+}
+
+.noResults {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 46px;
+    text-align: center;
 }
 
 

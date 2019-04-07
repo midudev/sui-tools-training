@@ -1,4 +1,4 @@
-## The sui-components & marketplace-components
+ ## The sui-components & marketplace-components
 
 First of all, before explaining you how to do it, it's important to know what are the marketplace-components that are created inside the marketplace studio and the sui-components that are created inside the sui-studio. Both of them use the same tool to create them that is the `sui-studio` but we will se it in the next steps.
 

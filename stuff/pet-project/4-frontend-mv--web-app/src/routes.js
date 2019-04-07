@@ -11,7 +11,7 @@ const loadDetailPage = loadPage(contextFactory, () =>
 )
 
 const loadSearchPage = loadPage(contextFactory, () =>
-  import(/* webpackChunkName: "Detail" */ './pages/Search')
+  import(/* webpackChunkName: "Search" */ './pages/Search')
 )
 
 export default (

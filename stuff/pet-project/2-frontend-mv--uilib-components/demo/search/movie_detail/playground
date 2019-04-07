@@ -1,0 +1,14 @@
+return (<SearchMovieDetail movie={{
+                                    Poster: 'https://picsum.photos/200',
+                                    Actors: "Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans"
+                                    Director: "Joss Whedon"
+                                    Plot: "When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it's up to Earth's mightiest heroes to stop the villainous Ultron from enacting his terrible plan."
+                                    Poster: "https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg"
+                                    Runtime: "141 min"
+                                    Title: "Avengers: Age of Ultron"
+                                    Type: "movie"
+                                    Website: "http://marvel.com/avengers"
+                                    Year: "2015"
+                                    imdbID: "tt2395427"
+                                    imdbRating: "7.4"
+                                  }}/>)

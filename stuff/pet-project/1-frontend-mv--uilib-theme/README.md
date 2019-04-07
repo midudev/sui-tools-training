@@ -1,4 +1,4 @@
-### First step, create our theme:
+ ### First step, create our theme:
 
 Here at the frontend team of *Schibsted spain* we follow a [naming convention for repositories](https://confluence.schibsted.io/display/ST/Github+Enterprise+Nomenclature) that works as follow...
 ```

@@ -1,25 +1,29 @@
-.sui-AtomCard {
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-SearchMoviePreview {
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .sui-AtomCard {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-div.containerImageStyles {
+  }
+  &__containerImage {
     border: 2px solid #ccc;
     width: 300px;
     height: 450px;
   }
 
-h2 {
+  &__title {
     color: black;
     text-align: center;
-}
+  }
 
-.movieLink {
-    text-decoration: none;
-}
-
-.imageStyle {
+  &__image {
     height: 100%;
     width: 100%;
+  }
 }

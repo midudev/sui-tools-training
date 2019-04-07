@@ -1,0 +1,7 @@
+return (<SearchMoviePreview movie={{
+    Poster: 'https://picsum.photos/200',
+    Title: 'Avengers',
+    Type: '',
+    Year: '1998',
+    imdbID: 'ttam3'
+}}/>)
