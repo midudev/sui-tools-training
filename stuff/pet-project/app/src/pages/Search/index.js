@@ -5,13 +5,14 @@ import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import MoleculeNotification from '@s-ui/react-molecule-notification'
 
 import Results from '../../components/Results'
+import BackLink from '../../components/BackLink'
 
 const Search = ({router, error, query, moviesList}) => {
   const onSelectPage = (Event, {page}) => {
     router.push(`/search/${query}/${page}`)
   }
 
-  if (error)
+  if (error) {
     return (
       <MoleculeNotification
         children={error.message}
@@ -20,9 +21,11 @@ const Search = ({router, error, query, moviesList}) => {
         position="bottom"
       />
     )
+  }
 
   return (
     <React.Fragment>
+      <BackLink router={router} />
       <Results moviesList={moviesList} onSelectPage={onSelectPage} />
     </React.Fragment>
   )

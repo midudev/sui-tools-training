@@ -47,9 +47,9 @@ body {
 
 .content {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1010px;
     padding: 0 15px;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .footer {
@@ -67,6 +67,14 @@ body {
             top: 2px;
             width: 12px;
             color: $pink;
+        }
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
         }
     }
 }
@@ -116,15 +124,19 @@ figure {
 
 .results {
     padding: 40px 0;
+    margin: 0 auto;
     display: grid;
     grid-gap: 40px;
-    grid-template-columns: 1fr;
+    width: 300px;
+    grid-template-columns: 300px;
     
     @include media-breakpoint-up(s) {
-        grid-template-columns: repeat(2, 1fr);
+        width: 640px;
+        grid-template-columns: repeat(2, 300px);
     }
     @include media-breakpoint-up(l) {
-        grid-template-columns: repeat(3, 1fr);
+        width: 980px;
+        grid-template-columns: repeat(3, 300px);
     }
    
 }
@@ -209,7 +221,10 @@ figure {
 }
 
 
-
+.movie-detail-container {
+    max-width: 800px;
+    margin: 0px auto;
+}
 .movie-detail {
     max-width: 300px;
     margin: 40px auto;

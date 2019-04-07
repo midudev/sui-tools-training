@@ -4,16 +4,19 @@ import PropTypes from 'prop-types'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 
 import MovieDetailCard from '../../components/MovieDetailCard'
+import BackLink from '../../components/BackLink'
 
-const Detail = ({movie}) => {
+const Detail = ({router, movie}) => {
   return (
-    <React.Fragment>
+    <div className="movie-detail-container">
+      <BackLink router={router} />
       <MovieDetailCard movie={movie} />
-    </React.Fragment>
+    </div>
   )
 }
 
 Detail.propTypes = {
+  router: PropTypes.object,
   movie: PropTypes.object
 }
 

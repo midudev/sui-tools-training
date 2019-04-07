@@ -6,7 +6,7 @@ import loadPage from '@s-ui/react-initial-props/lib/loadPage'
 import contextFactory from './contextFactory'
 import App from './components/App'
 
-const LoadHomePage = loadPage(contextFactory, () =>
+const HomePage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Home" */ './pages/Home')
 )
 
@@ -22,7 +22,8 @@ export default (
   <Router>
     <Route component={App}>
       <Route path="/">
-        <IndexRoute getComponent={LoadHomePage} />
+        <IndexRoute getComponent={HomePage} />
+        <Route path="popular(/:page)" getComponent={HomePage} />
         <Route path="search(/:query)(/:page)" getComponent={SearchPage} />
         <Route path="movie/:id" getComponent={DetailPage} />
       </Route>

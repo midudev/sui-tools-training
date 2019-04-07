@@ -22,7 +22,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p className="footer-build">
-        Build with <IconHeart /> by robertz
+        Build with <IconHeart /> by{' '}
+        <a href="https://github.com/robert-z" target="_blank">
+          robertz
+        </a>
       </p>
     </footer>
   )
