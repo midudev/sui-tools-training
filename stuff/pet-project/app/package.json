@@ -8,13 +8,15 @@
     "co": "sui-mono commit",
     "start": "sui-bundler dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ssr": "sui-bundler build -C && sui-ssr build -C && node server/index.js --inspect `pbpaste`"
+    "ssr": "sui-bundler build -C && sui-ssr build -C && node server/index.js --inspect `pbpaste`",
+    "build": "sui-bundler build -C"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@s-ui/bundler": "5",
+    "@s-ui/deploy": "2",
     "@s-ui/lint": "2",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
@@ -25,14 +27,14 @@
     "@s-ui/component-peer-dependencies": "1",
     "@s-ui/hoc": "1",
     "@s-ui/i18n": "1",
-    "@s-ui/react-atom-card": "^1.1.0",
-    "@s-ui/react-atom-image": "^1.9.0",
-    "@s-ui/react-atom-input": "^3.9.0",
-    "@s-ui/react-atom-spinner": "^1.3.0",
+    "@s-ui/react-atom-card": "1",
+    "@s-ui/react-atom-image": "1",
+    "@s-ui/react-atom-input": "3",
+    "@s-ui/react-atom-spinner": "1",
     "@s-ui/react-initial-props": "2",
-    "@s-ui/react-molecule-notification": "^1.11.0",
-    "@s-ui/react-molecule-pagination": "^1.1.0",
-    "@schibstedspain/sui-atom-button": "^1.23.0",
+    "@s-ui/react-molecule-notification": "1",
+    "@s-ui/react-molecule-pagination": "1",
+    "@schibstedspain/sui-atom-button": "1",
     "isomorphic-fetch": "2.2.1"
   },
   "eslintConfig": {
