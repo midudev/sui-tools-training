@@ -1,0 +1,253 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-input/lib/index';
+@import '~@s-ui/react-molecule-pagination/lib/index';
+@import '~@s-ui/react-molecule-notification/lib/index';
+@import '~@s-ui/react-atom-card/lib/index';
+@import '~@s-ui/react-atom-spinner/lib/index';
+@import '~@s-ui/react-atom-image/lib/index';
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,700');
+
+$regal-blue: #034378;
+$san-juan: #2d4e68;
+$white: #fff;
+$black: #000;
+$pink: #ff0070;
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;;
+    color: $white;
+    background-image: linear-gradient(to right, $regal-blue, $san-juan);
+}
+
+#⚛️ {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 70px auto 40px;
+}
+
+.header {
+    background-color: #f4f7f6;
+    border-bottom: 1px solid #e6eaea;
+    position: relative;
+}
+
+.content {
+    width: 100%;
+    max-width: 1010px;
+    padding: 0 15px;
+    margin: 40px auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-build {
+        margin: 0;
+        font-size: 12px;
+        color: $white;
+
+        & .fa-heart {
+            position: relative;
+            top: 2px;
+            width: 12px;
+            color: $pink;
+        }
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+
+
+.search-content {
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    & .sui-AtomInput--withIcon-icon {
+        width: 16px;
+        height: 16px;
+        color: #d0d1d4;
+    }
+    & .sui-AtomInput-input {
+        border: 0;
+        height: 70px;
+        min-height: 70px;
+        &:focus {
+            box-shadow: none;
+            border: 0;
+        }
+        &::placeholder {
+            color: #d0d1d4;
+        }
+    }
+}
+
+
+.pagination {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.not-results {
+    font-size: 34px;
+    text-align: center;
+    margin: 100px 0;
+}
+
+.results {
+    padding: 40px 0;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 40px;
+    width: 300px;
+    grid-template-columns: 300px;
+    
+    @include media-breakpoint-up(s) {
+        width: 640px;
+        grid-template-columns: repeat(2, 300px);
+    }
+    @include media-breakpoint-up(l) {
+        width: 980px;
+        grid-template-columns: repeat(3, 300px);
+    }
+   
+}
+
+.movie-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background:#eee;
+    width: 100%;
+    max-width: 300px;
+    min-height: 450px;
+    margin: 0px auto;
+    overflow: hidden;
+
+    .sui-AtomImage {
+        height: 450px;
+    }
+
+    .sui-AtomImage-error, 
+    .sui-AtomImage-spinner {
+        background: #eee;
+    }
+}
+
+.movie {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: $white;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 300px;
+    min-height: 450px;
+    margin: 0px auto;
+    overflow: hidden;
+
+    .sui-AtomCard-info {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        color: $white;
+        z-index: 9;
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform .3s;
+
+        .date {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+    }
+
+    figure {
+        &:after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: inset 0px 0px 150px 100px rgba(0,0,0,0.6);
+            z-index: 1;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+          }
+    }
+
+    &:hover {
+        .sui-AtomCard-info {
+            transform: translateY(0)
+        }
+        figure:after {
+            opacity: 1;
+        }
+    }
+}
+
+
+.movie-detail-container {
+    max-width: 800px;
+    margin: 0px auto;
+}
+.movie-detail {
+    max-width: 300px;
+    margin: 40px auto;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    @include media-breakpoint-up(s) {
+        max-width: 800px;
+        grid-template-columns: 300px auto;
+    }
+
+    &-info {
+        padding: 20px;
+        background: $white;
+        color: $black;
+    }
+
+    &-vote-average {
+        text-align: right;
+        font-size: 10px;
+        span {
+            font-size: 20px;
+        }
+    }
+}

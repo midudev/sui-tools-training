@@ -1,0 +1,50 @@
+{
+  "name": "domain",
+  "version": "1.0.0",
+  "description": "The next block will go over creating the boilerplate that will host the business logic of our application.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "co": "sui-mono commit",
+    "lib": "rm -Rf ./lib && babel ./src -d lib",
+    "lint": "sui-lint js --fix",
+    "test:client:watch": "npm run test:client --watch",
+    "test:server:watch": "npm run test:server --watch",
+    "prepublish": "npm run lib",
+    "precommit": "sui-precommit run",
+    "commitmsg": "validate-commit-msg"
+  },
+  "browser": {
+    "./test/helpers/describers/index.js": "./test/helpers/describers/clientDescribers.js"
+  },
+  "babel": {
+    "presets": [
+      "sui"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@s-ui/lint": "^2.23.0",
+    "@s-ui/mockmock": "^1.5.0",
+    "@s-ui/mono": "^1.41.0",
+    "@s-ui/precommit": "^2.6.0",
+    "@s-ui/test": "^2.9.0",
+    "babel-preset-sui": "^3.0.0",
+    "babelify": "^8.0.0",
+    "husky": "^1.3.1",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "dependencies": {
+    "@s-ui/domain": "^1.17.0",
+    "@s-ui/js": "^1.26.0",
+    "axios": "^0.18.0",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  }
+}
