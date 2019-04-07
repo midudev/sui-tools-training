@@ -13,23 +13,22 @@ export default class ApiMoviesRepository extends MoviesRepository {
     const host = this._config.get('API_URL_BASE')
     const apiKey = this._config.get('API_KEY')
 
-    const {
-      data: {
-        results: movies,
-        page: actualPage,
-        total_pages: totalPages,
-        total_results: totalResults
-      }
-    } = await this._fetcher.get(
+    const movieList = await this._fetcher.get(
       `${host}/search/movie?api_key=${apiKey}&query=${query}&page=${page}`
     )
 
-    return {
-      actualPage,
-      totalPages,
-      totalResults,
-      movies: movies.map(this._mapper.map)
-    }
+    return this.movieList({movieList})
+  }
+
+  async getMostPopularMovies({page}) {
+    const host = this._config.get('API_URL_BASE')
+    const apiKey = this._config.get('API_KEY')
+
+    const movieList = await this._fetcher.get(
+      `${host}/discover/movie?api_key=${apiKey}&&sort_by=popularity.desc&page=${page}`
+    )
+
+    return this.movieList({movieList})
   }
 
   async getDetail({id}) {
@@ -39,7 +38,25 @@ export default class ApiMoviesRepository extends MoviesRepository {
     const {data} = await this._fetcher.get(
       `${host}/movie/${id}?api_key=${apiKey}`
     )
-    console.log(data)
+
     return this._mapper.map(data)
+  }
+
+  movieList({movieList}) {
+    const {
+      data: {
+        results: movies,
+        page: actualPage,
+        total_pages: totalPages,
+        total_results: totalResults
+      }
+    } = movieList
+
+    return {
+      actualPage,
+      totalPages,
+      totalResults,
+      movies: movies.map(this._mapper.map)
+    }
   }
 }

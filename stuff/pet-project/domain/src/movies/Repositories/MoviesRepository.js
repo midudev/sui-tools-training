@@ -4,6 +4,9 @@ export default class MoviesRepository extends Repository {
   getMoviesBy() {
     throw new Error('[getMoviesBy] method must be implemented')
   }
+  getMostPopularMovies() {
+    throw new Error('[getMostPopularMovies] method must be implemented')
+  }
   getDetail() {
     throw new Error('[getDetail] method must be implemented')
   }

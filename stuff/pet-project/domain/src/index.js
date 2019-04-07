@@ -7,6 +7,9 @@ const config = new Config()
 
 const useCases = {
   search_movies_use_case: MoviesUseCasesFactory.searchMoviesUseCase({config}),
+  most_popular_movies_use_case: MoviesUseCasesFactory.mostPopularMoviesUseCase({
+    config
+  }),
   detail_movies_use_case: MoviesUseCasesFactory.detailMoviesUseCase({config})
 }
 
