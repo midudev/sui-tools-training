@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import AtomImage from '@s-ui/react-atom-image'
+import MovieImage from '../MovieImage'
 
 const MovieDetailCard = ({movie}) => {
   return (
     <div className="movie-detail">
-      <div className="movie-detail-image">
-        <AtomImage src={movie.posterPath} alt={movie.title} />
+      <div className="movie-image movie-detail-image">
+        <MovieImage src={movie.posterPath} alt={movie.title} />
       </div>
       <div className="movie-detail-info">
         <header>

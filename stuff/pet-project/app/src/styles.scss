@@ -4,6 +4,7 @@
 @import '~@s-ui/react-molecule-notification/lib/index';
 @import '~@s-ui/react-atom-card/lib/index';
 @import '~@s-ui/react-atom-spinner/lib/index';
+@import '~@s-ui/react-atom-image/lib/index';
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,700');
 
 $regal-blue: #034378;
@@ -25,7 +26,6 @@ html, body {
 body {
     font-family: 'Quicksand', sans-serif;;
     color: $white;
-    background: #f4f7f6;
     background-image: linear-gradient(to right, $regal-blue, $san-juan);
 }
 
@@ -129,15 +129,36 @@ figure {
    
 }
 
+.movie-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background:#eee;
+    width: 100%;
+    max-width: 300px;
+    min-height: 450px;
+    margin: 0px auto;
+    overflow: hidden;
+
+    .sui-AtomImage {
+        height: 450px;
+    }
+
+    .sui-AtomImage-error, 
+    .sui-AtomImage-spinner {
+        background: #eee;
+    }
+}
+
 .movie {
     position: relative;
-    display: -webkit-flex;
     display: flex;
     flex-direction: column;
     background: $white;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 300px;
+    min-height: 450px;
     margin: 0px auto;
     overflow: hidden;
 
